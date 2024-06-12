@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+<footer class="footer">
+    <ul class="social-links">
+      <li>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </li>
+    </ul>
+  </footer>
+  <style>
+
+    .footer {
+  background-image: url(./imgs/pattern-hills.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 25%;
+  width: 100%;
+}
+
+.footer .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 3rem;
+}
+
+.footer .social-links a {
+  color: var(--grayish-blue);
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer .social-links a:hover {
+  color: var(--soft-red);
+  transform: translateY(-5px);
+}
+  </style>
+  </body>
+  </html>

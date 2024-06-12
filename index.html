@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminex'24</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+          overflow-x: hidden;  
+        }
+        .nav-item {
+            margin-right: 40px; /* Adjust this value to increase/decrease spacing */
+        }
+        .glassmorphism-navbar {
+            background: rgba(255, 255, 255, 0.052);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.079);
+        }
+        .navbar-nav {
+            margin: 0 auto;
+            display: flex;
+        }
+        .register-btn {
+            font-size: 40px;             /* Increase font size */
+            background-color: #0c1821;
+            color:rgb(109, 214, 255); 
+            border: 3px solid rgb(109, 214, 255);
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 200px; 
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, font-size 0.3s;
+        }
+        .register-btn:hover {
+            font-size: larger;
+            color: #0c1821;
+            border-color: #0c1821;
+            background-color: rgb(86, 228, 228);
+        }
+        .nav-links .nav-link {
+            color: rgb(109, 214, 255) !important;  /* Ensure this color is applied */
+            font-size: 20px;
+            font-family: Poppins;
+            font-weight: 500;
+            text-decoration: none;
+            transition: font-size 0.2s, color 0.2s;
+        }
+        .nav-links .nav-link:hover {
+            font-size: 22.5px;
+            color: #ffffff !important;
+        }
+        .countdown-container h1 {
+            color: white;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+        .countdown {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .countdown .title {
+            position: relative;
+            background-color: #244249;
+            border-radius: 0.3rem;
+            box-shadow: 0 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.3rem;
+            width: 70px;
+            height: 70px;
+        }
+        .countdown .title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .countdown .title h2 {
+            text-align: center;
+            color: rgb(109, 214, 255);
+            font-size: 1.7rem;
+            line-height: 70px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .countdown .title h2::before {
+            content: '';
+            position: absolute;
+            top: 43%;
+            left: -5px;
+            width: 9px;
+            height: 9px;
+            background-color: #0c1821;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .countdown .title h2::after {
+            content: '';
+            position: absolute;
+            top: 43%;
+            right: -5px;
+            width: 9px;
+            height: 9px;
+            background-color: #0c1821;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .countdown .count:not(:last-child) {
+            margin-right: 1rem;
+        }
+        .countdown .count p {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            color: gray;
+            font-weight: 500;
+        }
+        @media (min-width: 768px) {
+            .countdown .title {
+                width: 100px;
+                height: 100px;
+            }
+            .countdown .title h2 {
+                line-height: 100px;
+                font-size: 3rem;
+            }
+            .countdown .count:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+        }
+
+        .card-hackathon-bg {
+            background-color: #ffc689;
+            color:  #5e3d1a; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card-roborun-bg {
+            background-color: #4ecfd3 ;
+            color: #1a4d59;; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card-eureka-bg {
+            background-color: #f4f29a;
+            color:#4e4b10; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card-gaming-bg {
+            background-color:#efd0d0 ;
+            color: #bc3232; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card-creativa-bg {
+            background-color: #e3cff4;
+            color: #5d3092; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card-gamegenesis-bg {
+            background-color: #ead16e;
+            color: #504013; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card-jobderby-bg {
+            background-color:#87e678;
+            color: #244b17; /* Adjust text color for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s; /* Add transition for hover effect */
+            position: relative; /* Add relative positioning */
+        }
+        .card {
+            border: 4px solid;
+            border-radius: 20px; 
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden; /* Ensure content stays within the card */
+        }
+        .card .card-img-top {
+            transition: opacity 0.3s;
+            width: 100%;
+            display: block;
+        }
+        .card:hover .card-img-top {
+            opacity: 0.3;
+        }
+        .card .additional-text {
+            align-self: left;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            transition: transform 0.5s ease-in-out;
+            text-align: center;
+            transform: translateY(100%);
+        }
+        .card:hover .additional-text {
+            transform: translateY(0%);
+        }
+        .extra-large-h1 {
+            
+            font-size: 8rem; 
+        }
+        .large-h1 {
+            font-size: 5rem; 
+        }
+        @media (max-width: 768px) {
+            .extra-large-h1 {
+                font-size: 3rem; /* Adjust for smaller screens */
+            }
+
+            .large-h1 {
+                font-size: 2rem; /* Adjust for smaller screens */
+            }
+        }
+        .card-custom-border {
+            border-radius: 20px; 
+            border: 4px solid #ffdbcf;
+        }
+        .card-custom-border2 {
+            border-radius: 20px; 
+            border: 4px solid #d4eeff;           
+        }
+        .card-custom-border3 {
+            border-radius: 20px; 
+            border: 4px solid #fcfce1; 
+        }
+        .card-custom-border4 {
+            border-radius: 20px; 
+            border: 4px solid #fce1e1;
+        }
+        .card-custom-border5 {
+            border-radius: 20px; 
+            border: 4px solid #cfd0fc;
+        }
+        .card-custom-border6 {
+            border-radius: 20px; 
+            border: 4px solid #fff1d4;
+        }
+        .card-custom-border7 {
+            border-radius: 20px; 
+            border: 4px solid #e3fce1;
+        }
+        .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1); /* Adjust the border color */
+}
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.card {
+            width: 350px; /* Adjust the width of the cards */
+            margin: 10px; /* Adjust the margin of the cards */
+        }
+        /* /* .card p {
+            margin: 0;
+            font-size: 12px; /* Adjust the font size of the card text} */
+        * */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* gap: 10px; Adjust the gap between the cards */
+        }
+        .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+.video-container {
+            position: relative;
+            padding-top: 56.25%;
+            margin: auto;
+        }
+        .video-container video {
+            /* opacity: 1; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .overlay-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: #0c1821 ;">
+    <nav class="navbar navbar-expand-lg navbar-light glassmorphism-navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: white;"><b>LUMINEX</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav-links">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#results">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+        <div class="row">
+            <!-- <div class="col-12 col-md-8"> -->
+                <div class="video-container">
+                    <video loop autoplay muted>
+                        <source src="abt me.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h1 style="text-align: center; color:rgb(255, 255, 255);" class="extra-large-h1 overlay-text">LUMINEX</h1>
+                </div>
+            <!-- </div> -->
+        </div>    <div class="container">
+<div id="events">
+    <br><br><br>
+    <div class="fade-up"><h1 style="color: aquamarine; text-align: center;" class="large-h1">Our Events</h1></div>
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-md-4 mb-4 d-flex justify-content-center ">
+            <div class="card card-hackathon-bg card-custom-border">
+                <img src="hackathon.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="additional-text" style="background-color: #ffc689;"><div class="tc" style="text-align: left;">
+                        <b>Hackathon is an exhilarating coding competition for high school students, where teams of two tackle six real-world coding challenges using Python. With an emphasis on problem-solving skills, participants navigate time constraints, balance speed with accuracy, and interpret hints to devise comprehensive solutions. The event fosters resilience and composure under pressure while enhancing analytical thinking & real-world communication skills.</b></div>
+                        <a href="#" class="btn" style="background-color: #5e3d1a; color:#ffc689;">Event Details</a>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+      <div class="col-md-4 mb-4 d-flex justify-content-center " >
+          <div class="card card-roborun-bg card-custom-border2">
+              <img src="roborun.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <div class="additional-text" style="background-color:#4ecfd3 ;"><div class="tc" style="text-align: left;"><b>RoboRun is an exciting competition for high school students where teams design and construct robots to navigate a challenging obstacle course. With an emphasis on innovation and problem-solving, participants gain hands-on experience in robotics and automation while fostering teamwork and collaboration skills. The competition encourages creativity and practical insights, as teams optimize their designs under pressure to complete the course in the shortest time possible.</b><br>      </div>            <a href="#" class="btn" style="background-color: #1a4d59; color:#4ecfd3">Event Details</a></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+          <div class="card card-eureka-bg card-custom-border3">
+              <img src="Eureka.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <div class="additional-text" style="background-color: #f4f29a;">
+                    <div class="tc" style="text-align: left;"><b>Eureka is a prestigious event welcoming teams of students from grades 6-8 and 9-12 to exhibit their scientific ingenuity and problem-solving prowess. Participants assemble models or display boards representing their projects within a 45-minute window, presenting them to esteemed judges for evaluation. Encouraging innovation and safety, Eureka promotes scientific exploration while cultivating essential skills such as critical thinking and communication.</b><br>           </div>       <a href="#" class="btn" style="background-color: #4e4b10; color:#f4f29a">Event Details</a></div>
+              </div>
+          </div>
+      </div>
+</div>
+ <div class="row">
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card card-gaming-bg card-custom-border4">
+                <img src="Gaming.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="additional-text" style="background-color: #efd0d0;">
+                        <div class="tc" style="text-align: left;"><b>Gaming is a competitive event catering to students in grades 6-12, featuring standard 5V5 Valorant matches. The competition follows a bracket format, with each match lasting 40 minutes. The victor is determined by the team with the most wins.
+                        The primary objective of this event is to cultivate essential skills in participating students, such as motor skills, cognitive thinking, team planning, coordination, and strategy development. This electrfying event await your participation.</b><br>                   
+                         </div><a href="#" class="btn" style="background-color: #f74343; color:#efd0d0">Event Details</a></div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card card-creativa-bg card-custom-border5">
+                <img src="creativa.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="additional-text" style="background-color: #e3cff4;">
+                        <div class="tc" style="text-align: left;"><b>Creativa is an exciting competition inviting students from grades 6 to 12 to exhibit their digital imaging skills. Participants will individually create captivating posters using pre-selected images and online assets, employing their chosen design software within event guidelines. A discerning judging panel will evaluate presentations based on set criterias. Creativa promises to be a thrilling platform for students to showcase their artistic flair and digital expertise.</b><br>                
+                    </div><a href="#" class="btn" style="background-color: #5d3092; color:#e3cff4">Event Details</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card card-gamegenesis-bg card-custom-border6">
+                <img src="GameGenesis.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="additional-text" style="background-color: #ead16e;"><div class="tc" style="text-align: left;">
+                        <b>GameGenesis provides students in grades 6-8 with a platform to showcase their game development skills using Scratch. Students create innovative games focused on SDGs. Emphasizing originality, participants refrain from using pre-saved or copied code, ensuring the development of new and imaginative games. Through GameGenesis, students not only learn coding basics but also nurture creativity while addressing real-world issues outlined by the SDGs.</b><br>             
+                        </div><a href="#" class="btn" style="background-color: #504013; color:#ead16e">Event Details</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row  d-flex flex-column justify-content-center align-items-center">
+          <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+              <div class="card card-jobderby-bg card-custom-border7">
+                  <img src="JOBDERBY.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <div class="additional-text" style="background-color: #87e678;">
+                        <div class="tc" style="text-align: left;">
+                        <b>JobDerby offers students in grades 6-8 a simulated job interview experience focusing on HTML proficiency. Students engage in interviews conducted by the interviewers. Interviews cover different aspects of a professional interview with coding proficiency set as per the  grade level. Through JobDerby, students gain valuable experience, enhance HTML skills, develop problem-solving abilities, improve communication skills, and gain insight into technical job interviews.</b><br>               
+                        </div><a href="#" class="btn" style="background-color: #244b17; color:#87e678">Event Details</a></div>                  </div>
+              </div>
+          </div>
+  </div>
+</b>
+</div> 
+</div><br>
+
+        <div class="countdown-container">
+            <h1 style="text-align: center;">TINKERING SCHEDHULED IN</h1>
+            <div class="countdown">
+                <!-- day -->
+                <div class="count">
+                    <div class="title">
+                        <h2 class="day"></h2>
+                    </div>
+                    <p>days</p>
+                </div>
+                <!-- hour -->
+                <div class="count">
+                    <div class="title">
+                        <h2 class="hour"></h2>
+                    </div>
+                    <p>hours</p>
+                </div>
+                <!-- minute -->
+                <div class="count">
+                    <div class="title">
+                        <h2 class="minute"></h2>
+                    </div>
+                    <p>minutes</p>
+                </div>
+                <div class="count">
+                    <div class="title">
+                        <h2 class="second"></h2>
+                    </div>
+                    <p>seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        const countDown = () => {
+            const launchDate = new Date('1 August, 2024 09:00:00').getTime();
+            const presentDate = new Date().getTime();
+            const difference = launchDate - presentDate;
+
+            const second = 1000;
+            const minute = 60 * second;
+            const hour = 60 * minute;
+            const day = 24 * hour;
+
+            const remainDay = Math.floor(difference / day);
+            const remainHour = Math.floor((difference % day) / hour);
+            const remainMinute = Math.floor((difference % hour) / minute);
+            const remainSecond = Math.floor((difference % minute) / second);
+
+            document.querySelector('.day').innerText = remainDay;
+            document.querySelector('.hour').innerText = remainHour;
+            document.querySelector('.minute').innerText = remainMinute;
+            document.querySelector('.second').innerText = remainSecond;
+        };
+
+        setInterval(countDown, 1000);
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+        
+            const handleScroll = () => {
+                fadeUpElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+        
+            window.addEventListener('scroll', handleScroll);
+        
+            // Initial check in case elements are already in view on page load
+            handleScroll();
+        });
+
+    </script>
+</body>
+</html>
